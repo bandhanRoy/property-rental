@@ -1,0 +1,483 @@
+{
+	"info": {
+		"_postman_id": "72deb84f-9db8-41ca-a3a6-11e5640e651a",
+		"name": "Property Rental",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "30144130"
+	},
+	"item": [
+		{
+			"name": "Register a user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"landlord@g.com\",\n    \"password\": \"Password@1234\",\n    \"name\": \"Landlord\",\n    \"landlord\": true,\n    \"tenant\": false\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/authentication/sign-up",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"authentication",
+						"sign-up"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Authenticate a user",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\": \"landlord@g.com\",\n    \"password\": \"Password@1234\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/authentication/sign-in",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"authentication",
+						"sign-in"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create new property",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzU2NDksImRhdGEiOnsidXNlcklkIjoiNjgzNTY0NzMtZDA5Zi00ZTc1LWI2NjctNTQzMWNiZTE3ZTc0IiwiYXV0aElkIjoiMmVkN2NiOTYtZmZjOC00ZjUwLWJhYzYtZTk3NTNmNjgyZmIxIiwidGVuYW50IjpudWxsLCJsYW5kbG9yZCI6ImY4Yzk3MGJkLTYxYjEtNGI0Mi1hZGYyLTRkNDNmNDBhZjg3ZSIsInVzZXJuYW1lIjoibGFuZGxvcmRAZy5jb20ifSwiaWF0IjoxNzEzMDIxMjQ5fQ.9E7FHRwCBj6nMjYTLaqy_PSwbktB_b8_NAq6Pc0cN5I",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"address\": \"12345\",\n    \"size\": \"1234\",\n    \"description\": \"South-East\",\n    \"amenities\": \"24X7 Electricity\",\n    \"rent_amount\": 10000\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/properties",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"properties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get all properties",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzYwNTIsImRhdGEiOnsidXNlcklkIjoiYjVmODMxZDYtOTk5Zi00NDQ3LTk3ZTQtZTY1MmI5ZjIxODY4IiwiYXV0aElkIjoiNjM5ZjU3ZmYtYTYzZS00MjU3LTkzZjAtYjJkY2JmNWRiNGExIiwidGVuYW50IjoiNWFjYmRhMWQtNDEyYi00MTRmLTgxMjgtNGM4YzdkNGU5YjY1IiwibGFuZGxvcmQiOm51bGwsInVzZXJuYW1lIjoidGVuYW50MkBnLmNvbSJ9LCJpYXQiOjE3MTMwMjE2NTJ9.sXgqlji6orVqWqacaAqxK492jxMvaY65v14LkI3RGp8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/properties",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"properties"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reserve a property",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzYwNTIsImRhdGEiOnsidXNlcklkIjoiYjVmODMxZDYtOTk5Zi00NDQ3LTk3ZTQtZTY1MmI5ZjIxODY4IiwiYXV0aElkIjoiNjM5ZjU3ZmYtYTYzZS00MjU3LTkzZjAtYjJkY2JmNWRiNGExIiwidGVuYW50IjoiNWFjYmRhMWQtNDEyYi00MTRmLTgxMjgtNGM4YzdkNGU5YjY1IiwibGFuZGxvcmQiOm51bGwsInVzZXJuYW1lIjoidGVuYW50MkBnLmNvbSJ9LCJpYXQiOjE3MTMwMjE2NTJ9.sXgqlji6orVqWqacaAqxK492jxMvaY65v14LkI3RGp8",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"desired_move_in_date\": \"2024-04-17\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/properties/:propertyId/reserve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"properties",
+						":propertyId",
+						"reserve"
+					],
+					"variable": [
+						{
+							"key": "propertyId",
+							"value": "a4f61f55-80f8-4718-9b3b-587ea2f94b94"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Approve a reservation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzY2NTIsImRhdGEiOnsidXNlcklkIjoiNjgzNTY0NzMtZDA5Zi00ZTc1LWI2NjctNTQzMWNiZTE3ZTc0IiwiYXV0aElkIjoiNjZiY2Y5ZDYtOTNhOS00YjI3LTg3MTQtNmMxYWMzN2U5MzI3IiwidGVuYW50IjpudWxsLCJsYW5kbG9yZCI6ImY4Yzk3MGJkLTYxYjEtNGI0Mi1hZGYyLTRkNDNmNDBhZjg3ZSIsInVzZXJuYW1lIjoibGFuZGxvcmRAZy5jb20ifSwiaWF0IjoxNzEzMDIyMjUyfQ.o1Tgir4O-G2Puo4D5e-e6O0S-S0h05SZDm1H-5gW2mc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/reservations/:reservationId/approve",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"reservations",
+						":reservationId",
+						"approve"
+					],
+					"variable": [
+						{
+							"key": "reservationId",
+							"value": "680aef8b-ff7a-4eaf-af31-bc86c907f204"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Reject a reservation",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzY2NTIsImRhdGEiOnsidXNlcklkIjoiNjgzNTY0NzMtZDA5Zi00ZTc1LWI2NjctNTQzMWNiZTE3ZTc0IiwiYXV0aElkIjoiNjZiY2Y5ZDYtOTNhOS00YjI3LTg3MTQtNmMxYWMzN2U5MzI3IiwidGVuYW50IjpudWxsLCJsYW5kbG9yZCI6ImY4Yzk3MGJkLTYxYjEtNGI0Mi1hZGYyLTRkNDNmNDBhZjg3ZSIsInVzZXJuYW1lIjoibGFuZGxvcmRAZy5jb20ifSwiaWF0IjoxNzEzMDIyMjUyfQ.o1Tgir4O-G2Puo4D5e-e6O0S-S0h05SZDm1H-5gW2mc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/reservations/:reservationId/reject",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"reservations",
+						":reservationId",
+						"reject"
+					],
+					"variable": [
+						{
+							"key": "reservationId",
+							"value": "680aef8b-ff7a-4eaf-af31-bc86c907f204"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create terms",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzY2NTIsImRhdGEiOnsidXNlcklkIjoiNjgzNTY0NzMtZDA5Zi00ZTc1LWI2NjctNTQzMWNiZTE3ZTc0IiwiYXV0aElkIjoiNjZiY2Y5ZDYtOTNhOS00YjI3LTg3MTQtNmMxYWMzN2U5MzI3IiwidGVuYW50IjpudWxsLCJsYW5kbG9yZCI6ImY4Yzk3MGJkLTYxYjEtNGI0Mi1hZGYyLTRkNDNmNDBhZjg3ZSIsInVzZXJuYW1lIjoibGFuZGxvcmRAZy5jb20ifSwiaWF0IjoxNzEzMDIyMjUyfQ.o1Tgir4O-G2Puo4D5e-e6O0S-S0h05SZDm1H-5gW2mc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"term\": \"Test term 2\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/contracts/terms",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contracts",
+						"terms"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create contracts",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzY2NTIsImRhdGEiOnsidXNlcklkIjoiNjgzNTY0NzMtZDA5Zi00ZTc1LWI2NjctNTQzMWNiZTE3ZTc0IiwiYXV0aElkIjoiNjZiY2Y5ZDYtOTNhOS00YjI3LTg3MTQtNmMxYWMzN2U5MzI3IiwidGVuYW50IjpudWxsLCJsYW5kbG9yZCI6ImY4Yzk3MGJkLTYxYjEtNGI0Mi1hZGYyLTRkNDNmNDBhZjg3ZSIsInVzZXJuYW1lIjoibGFuZGxvcmRAZy5jb20ifSwiaWF0IjoxNzEzMDIyMjUyfQ.o1Tgir4O-G2Puo4D5e-e6O0S-S0h05SZDm1H-5gW2mc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"property_id\" : \"a4f61f55-80f8-4718-9b3b-587ea2f94b94\",\n    \"start_date\": \"2024-04-17\",\n    \"end_date\": \"2024-04-18\",\n    \"rent_amount\": 10000,\n    \"tenants\": [\"cccfcac7-0b76-4cbf-a32e-8a2a88f54f3f\"],\n    \"terms\": [\"58031af0-9e51-4539-b6c8-3a072a747ee2\"]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/contracts",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contracts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Modify contract and terms",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzY2NTIsImRhdGEiOnsidXNlcklkIjoiNjgzNTY0NzMtZDA5Zi00ZTc1LWI2NjctNTQzMWNiZTE3ZTc0IiwiYXV0aElkIjoiNjZiY2Y5ZDYtOTNhOS00YjI3LTg3MTQtNmMxYWMzN2U5MzI3IiwidGVuYW50IjpudWxsLCJsYW5kbG9yZCI6ImY4Yzk3MGJkLTYxYjEtNGI0Mi1hZGYyLTRkNDNmNDBhZjg3ZSIsInVzZXJuYW1lIjoibGFuZGxvcmRAZy5jb20ifSwiaWF0IjoxNzEzMDIyMjUyfQ.o1Tgir4O-G2Puo4D5e-e6O0S-S0h05SZDm1H-5gW2mc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "PATCH",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"property_id\": \"a4f61f55-80f8-4718-9b3b-587ea2f94b94\",\n    \"start_date\": \"2024-04-17\",\n    \"end_date\": \"2024-04-18\",\n    \"rent_amount\": 10000,\n    \"terms\": {\n        \"add\": [\n            \"271af9ef-adb9-4135-8387-b62550d803cb\"\n        ],\n        \"remove\": []\n    },\n    \"tenants\": {\n        \"add\": [\n            \"271af9ef-adb9-4135-8387-b62550d803cb\"\n        ],\n        \"remove\": []\n    }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/contracts/:contractId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contracts",
+						":contractId"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "288a4d7f-062d-4f96-9d46-1f3379dda8ab"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Terminate a contract",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzY2NTIsImRhdGEiOnsidXNlcklkIjoiNjgzNTY0NzMtZDA5Zi00ZTc1LWI2NjctNTQzMWNiZTE3ZTc0IiwiYXV0aElkIjoiNjZiY2Y5ZDYtOTNhOS00YjI3LTg3MTQtNmMxYWMzN2U5MzI3IiwidGVuYW50IjpudWxsLCJsYW5kbG9yZCI6ImY4Yzk3MGJkLTYxYjEtNGI0Mi1hZGYyLTRkNDNmNDBhZjg3ZSIsInVzZXJuYW1lIjoibGFuZGxvcmRAZy5jb20ifSwiaWF0IjoxNzEzMDIyMjUyfQ.o1Tgir4O-G2Puo4D5e-e6O0S-S0h05SZDm1H-5gW2mc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:3000/api/v1/contracts/:contractId",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contracts",
+						":contractId"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "288a4d7f-062d-4f96-9d46-1f3379dda8ab"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Request to terminate contract",
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": [
+						{
+							"key": "token",
+							"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJleHAiOjE3MTMwMzY2NTIsImRhdGEiOnsidXNlcklkIjoiNjgzNTY0NzMtZDA5Zi00ZTc1LWI2NjctNTQzMWNiZTE3ZTc0IiwiYXV0aElkIjoiNjZiY2Y5ZDYtOTNhOS00YjI3LTg3MTQtNmMxYWMzN2U5MzI3IiwidGVuYW50IjpudWxsLCJsYW5kbG9yZCI6ImY4Yzk3MGJkLTYxYjEtNGI0Mi1hZGYyLTRkNDNmNDBhZjg3ZSIsInVzZXJuYW1lIjoibGFuZGxvcmRAZy5jb20ifSwiaWF0IjoxNzEzMDIyMjUyfQ.o1Tgir4O-G2Puo4D5e-e6O0S-S0h05SZDm1H-5gW2mc",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"request_termination_date\": \"2024-04-17\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:3000/api/v1/contracts/:contractId/terminate",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "3000",
+					"path": [
+						"api",
+						"v1",
+						"contracts",
+						":contractId",
+						"terminate"
+					],
+					"variable": [
+						{
+							"key": "contractId",
+							"value": "423a0dac-0112-4395-abad-8ba183980cee"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
